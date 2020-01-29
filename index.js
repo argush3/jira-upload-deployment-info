@@ -99,17 +99,17 @@ async function submitDeploymentInfo() {
 
         let response = await request(options);
 
-        // try {
-        //     console.log("try/catch - start");
-        //     response = JSON.stringify(response);
-        //     response = JSON.parse(response);
-        //     console.log("response: ", response);
-        //     console.log("response.rejectedDeployments: ", response.rejectedDeployments);
-        //     console.log("try/catch - end");
-        // }
-        // catch(error) {
-        //     console.log("caught error: ", error);
-        // }
+        try {
+            console.log("try/catch - start");
+            // response = JSON.stringify(response);
+            // response = JSON.parse(response);
+            console.log("response: ", response);
+            // console.log("response.rejectedDeployments: ", response.rejectedDeployments);
+            console.log("try/catch - end");
+        }
+        catch(error) {
+            console.log("caught error: ", error);
+        }
 
         core.setOutput("response", response);
     } catch (error) {
