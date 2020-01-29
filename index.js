@@ -100,14 +100,14 @@ async function submitDeploymentInfo() {
         try {
             console.log("try/catch - start");
             response = JSON.parse(response);
+            console.log("response: ", response);
+            console.log("response.rejectedDeployments: ", response.rejectedDeployments);
             console.log("try/catch - end");
         }
         catch(error) {
             console.log("caught error: ", error);
         }
 
-        console.log("response: ", response);
-        console.log("response.rejectedDeployments: ", response.rejectedDeployments);
         // if(response.rejectedDeployments) {
         //     console.log("response.rejectedDeployments: ", response.rejectedDeployments);
         // }
