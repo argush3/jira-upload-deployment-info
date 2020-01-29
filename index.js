@@ -90,28 +90,9 @@ async function submitDeploymentInfo() {
         options.url = "https://api.atlassian.com/jira/deployments/0.1/cloud/" + cloudId + "/bulk";
         options.headers.Authorization = "Bearer " + accessToken;
 
-        // console.log("options: ", options);
-
-        // const payload = JSON.stringify(github.context.payload, undefined, 2)
-        // console.log(`The event payload: ${payload}`);
-
         let response = await request(options);
         response = JSON.parse(response);
         console.log("response: ", response);
-        console.log("response end...");
-        // if(response.rejectedDeployments) {
-        //     console.log("response.rejectedDeployments: ", response.rejectedDeployments);
-        // }
-        // if(response.rejectedDeployments && response.rejectedDeployments.length > 0) {
-        //     console.log("1");
-            // const rejectedDeployment = response.rejectedDeployments[0];
-            // console.log("2");
-            // console.log("errors: ", rejectedDeployment.errors);
-            // let errors = rejectedDeployment.errors.map(error => error.message).join(',');
-            // errors.substr(0, errors.length - 1);
-            // console.log("joined errors: ", errors);
-            // core.setFailed(errors);
-        // }
         core.setOutput("response", response);
     } catch (error) {
         core.setFailed(error.message);
