@@ -36,8 +36,7 @@ let options = {
     method: 'POST',
     url: '',
     headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
+        Accept: 'application/json',
         Authorization: ''
     },
     body: {}
