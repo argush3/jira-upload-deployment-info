@@ -100,7 +100,7 @@ async function submitDeploymentInfo() {
         console.log("response: ", response);
         console.log("response end...");
         if(response.rejectedDeployments) {
-            console.log("response.rejectedDeployments: " + response.rejectedDeployments);
+            console.log("response.rejectedDeployments: ", response.rejectedDeployments);
         }
         // if(response.rejectedDeployments && response.rejectedDeployments.length > 0) {
         //     console.log("1");
