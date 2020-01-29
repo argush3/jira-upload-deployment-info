@@ -96,7 +96,7 @@ async function submitDeploymentInfo() {
         // console.log(`The event payload: ${payload}`);
 
         let responseJson = await request(options);
-        // console.log("responseJson: " + responseJson);
+        console.log("responseJson: " + responseJson);
         response = JSON.parse(responseJson);
 
         if(response.rejectedDeployments && response.rejectedDeployments.length > 0) {
