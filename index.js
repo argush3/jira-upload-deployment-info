@@ -99,8 +99,8 @@ async function submitDeploymentInfo() {
         response = JSON.parse(response);
         console.log("response: ", response);
         console.log("response end...");
-        if(response.rejectedDeployments && response.rejectedDeployments.length > 0) {
-            console.log("1");
+        // if(response.rejectedDeployments && response.rejectedDeployments.length > 0) {
+        //     console.log("1");
             // const rejectedDeployment = response.rejectedDeployments[0];
             // console.log("2");
             // console.log("errors: ", rejectedDeployment.errors);
@@ -108,7 +108,7 @@ async function submitDeploymentInfo() {
             // errors.substr(0, errors.length - 1);
             // console.log("joined errors: ", errors);
             // core.setFailed(errors);
-        }
+        // }
         core.setOutput("response", response);
     } catch (error) {
         core.setFailed(error.message);
