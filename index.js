@@ -36,6 +36,7 @@ let options = {
     method: 'POST',
     url: '',
     headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
         Authorization: ''
     },
@@ -83,13 +84,13 @@ async function submitDeploymentInfo() {
 
         bodyData.deployments = [deployment];
         bodyData = JSON.stringify(bodyData);
-        console.log("bodyData: " + bodyData);
+        // console.log("bodyData: " + bodyData);
 
         options.body = bodyData;
         options.url = "https://api.atlassian.com/jira/deployments/0.1/cloud/" + cloudId + "/bulk";
         options.headers.Authorization = "Bearer " + accessToken;
 
-        // console.log("options: ", options);
+        console.log("options: ", options);
 
         // const payload = JSON.stringify(github.context.payload, undefined, 2)
         // console.log(`The event payload: ${payload}`);
