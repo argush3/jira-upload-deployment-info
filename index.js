@@ -37,7 +37,6 @@ let options = {
     url: '',
     headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
         Authorization: ''
     },
     body: {}
@@ -84,7 +83,7 @@ async function submitDeploymentInfo() {
 
         bodyData.deployments = [deployment];
         bodyData = JSON.stringify(bodyData);
-        // console.log("bodyData: " + bodyData);
+        console.log("bodyData: " + bodyData);
 
         options.body = bodyData;
         options.url = "https://api.atlassian.com/jira/deployments/0.1/cloud/" + cloudId + "/bulk";
