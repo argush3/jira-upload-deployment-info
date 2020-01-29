@@ -98,7 +98,9 @@ async function submitDeploymentInfo() {
         let response = await request(options);
 
         try {
+            console.log("try/catch - start");
             response = JSON.parse(response);
+            console.log("try/catch - end");
         }
         catch(error) {
             console.log("caught error: ", error);
