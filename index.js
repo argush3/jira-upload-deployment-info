@@ -99,7 +99,9 @@ async function submitDeploymentInfo() {
         response = JSON.parse(response);
         console.log("response: ", response);
         if(response.rejectedDeployments && response.rejectedDeployments.length > 0) {
+            console.log("1");
             const rejectedDeployment = response.rejectedDeployments[0];
+            console.log("2");
             console.log("errors: ", rejectedDeployment.errors);
             let errors = rejectedDeployment.errors.map(error => error.message).join(',');
             errors.substr(0, errors.length - 1);
