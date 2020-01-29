@@ -83,6 +83,8 @@ async function submitDeploymentInfo() {
 
         bodyData.deployments = [deployment];
         bodyData = JSON.stringify(bodyData);
+        bodyData = JSON.parse(bodyData);
+        bodyData = JSON.stringify(bodyData);
         // console.log("bodyData: " + bodyData);
 
         options.body = bodyData;
