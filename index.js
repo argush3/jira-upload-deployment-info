@@ -92,7 +92,7 @@ async function submitDeploymentInfo() {
 
         // console.log("options: ", options);
 
-        const payload = JSON.stringify(github.context.payload, undefined, 2)
+        // const payload = JSON.stringify(github.context.payload, undefined, 2)
         // console.log(`The event payload: ${payload}`);
 
         let response = await request(options);
