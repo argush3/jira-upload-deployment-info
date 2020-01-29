@@ -89,7 +89,7 @@ async function submitDeploymentInfo() {
         options.headers.Authorization = "Bearer " + accessToken;
 
         let response = await request(options);
-        response = JSON.parse(response);
+        // response = JSON.parse(response);
         core.setOutput("response", response);
     } catch (error) {
         core.setFailed(error.message);
