@@ -84,8 +84,6 @@ async function submitDeploymentInfo() {
 
         bodyData.deployments = [deployment];
         bodyData = JSON.stringify(bodyData);
-        // bodyData = JSON.parse(bodyData);
-        // bodyData = JSON.stringify(bodyData);
         // console.log("bodyData: " + bodyData);
 
         options.body = bodyData;
@@ -98,28 +96,16 @@ async function submitDeploymentInfo() {
         // console.log(`The event payload: ${payload}`);
 
         let responseJson = await request(options);
+        // console.log("responseJson: " + responseJson);
+        response = JSON.parse(responseJson);
 
-        try {
-            console.log("try/catch - start");
-            // response = JSON.stringify(response);
-            response = JSON.parse(responseJson);
-            console.log("response: " + response);
-            // console.log("response.rejectedDeployments: ", response.rejectedDeployments);
-            if(response.rejectedDeployments && response.rejectedDeployments.length > 0) {
-                console.log("1");
-                const rejectedDeployment = response.rejectedDeployments[0];
-                console.log("2");
-                console.log("errors: ", rejectedDeployment.errors);
-                let errors = rejectedDeployment.errors.map(error => error.message).join(',');
-                errors.substr(0, errors.length - 1);
-                console.log("joined errors: ", errors);
-                core.setFailed(errors);
-            }
-
-            console.log("try/catch - end");
-        }
-        catch(error) {
-            console.log("caught error: ", error);
+        if(response.rejectedDeployments && response.rejectedDeployments.length > 0) {
+            const rejectedDeployment = response.rejectedDeployments[0];
+            console.log("errors: ", rejectedDeployment.errors);
+            let errors = rejectedDeployment.errors.map(error => error.message).join(',');
+            errors.substr(0, errors.length - 1);
+            console.log("joined errors: ", errors);
+            core.setFailed(errors);
         }
 
         core.setOutput("response", responseJson);
