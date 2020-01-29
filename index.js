@@ -84,7 +84,7 @@ async function submitDeploymentInfo() {
 
         bodyData.deployments = [deployment];
         bodyData = JSON.stringify(bodyData);
-        console.log("bodyData: " + bodyData);
+        // console.log("bodyData: " + bodyData);
 
         options.body = bodyData;
         options.url = "https://api.atlassian.com/jira/deployments/0.1/cloud/" + cloudId + "/bulk";
@@ -96,7 +96,7 @@ async function submitDeploymentInfo() {
         // console.log(`The event payload: ${payload}`);
 
         let response = await request(options);
-        // response = JSON.parse(response);
+        response = JSON.parse(response);
         console.log("response: ", response);
         console.log("response.rejectedDeployments: ", response.rejectedDeployments);
         // if(response.rejectedDeployments) {
