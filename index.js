@@ -98,7 +98,7 @@ async function submitDeploymentInfo() {
         let response = await request(options);
         // response = JSON.parse(response);
         console.log("response: ", response);
-        console.log("response end...");
+        console.log("response.rejectedDeployments: ", response.rejectedDeployments);
         // if(response.rejectedDeployments) {
         //     console.log("response.rejectedDeployments: ", response.rejectedDeployments);
         // }
